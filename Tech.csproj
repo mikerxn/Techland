@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF3EF895-45F6-4074-B67B-76548D0FD84B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Tech</RootNamespace>
+    <AssemblyName>Tech</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=2.0.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>packages\GMap.NET.Core.2.0.1\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=2.0.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>packages\GMap.NET.WinForms.2.0.1\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=2.0.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>packages\GMap.NET.WinPresentation.2.0.1\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>packages\Npgsql.5.0.0\lib\netstandard2.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.EF6.1.0.113.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.Linq.1.0.113.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.4.6.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Channels.4.7.0\lib\netstandard2.0\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AboutControl.Designer.cs">
+      <DependentUpon>AboutControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountSettingForm.Designer.cs">
+      <DependentUpon>AccountSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account_OptionControl.Designer.cs">
+      <DependentUpon>Account_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonZ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConvertImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConvertImage.Designer.cs">
+      <DependentUpon>ConvertImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertOther.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConvertOther.Designer.cs">
+      <DependentUpon>ConvertOther.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertPDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConvertPDF.Designer.cs">
+      <DependentUpon>ConvertPDF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertShapefile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConvertShapefile.Designer.cs">
+      <DependentUpon>ConvertShapefile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomProjectionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomProjectionsForm.Designer.cs">
+      <DependentUpon>CustomProjectionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditCustomaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCustomaryForm.Designer.cs">
+      <DependentUpon>EditCustomaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditFreeHoldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditFreeHoldForm.Designer.cs">
+      <DependentUpon>EditFreeHoldForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditLeaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditLeaseForm.Designer.cs">
+      <DependentUpon>EditLeaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditMailoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMailoForm.Designer.cs">
+      <DependentUpon>EditMailoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpManualForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpManualForm.Designer.cs">
+      <DependentUpon>HelpManualForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportCSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportCSV.Designer.cs">
+      <DependentUpon>ImportCSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportGeoJSON.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportGeoJSON.Designer.cs">
+      <DependentUpon>ImportGeoJSON.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportOtherFormat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportOtherFormat.Designer.cs">
+      <DependentUpon>ImportOtherFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportShapefile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportShapefile.Designer.cs">
+      <DependentUpon>ImportShapefile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCustomaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCustomaryForm.Designer.cs">
+      <DependentUpon>NewCustomaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Edit_OptionControl.Designer.cs">
+      <DependentUpon>Edit_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Import_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Import_OptionControl.Designer.cs">
+      <DependentUpon>Import_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileOptionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileOptionsControl.Designer.cs">
+      <DependentUpon>FileOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewFreeHoldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewFreeHoldForm.Designer.cs">
+      <DependentUpon>NewFreeHoldForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HelpControl.Designer.cs">
+      <DependentUpon>HelpControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Help_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Help_OptionControl.Designer.cs">
+      <DependentUpon>Help_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HomeControl.Designer.cs">
+      <DependentUpon>HomeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Info_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Info_OptionControl.Designer.cs">
+      <DependentUpon>Info_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewLeaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewLeaseForm.Designer.cs">
+      <DependentUpon>NewLeaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewMailoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewMailoForm.Designer.cs">
+      <DependentUpon>NewMailoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MapsControl.Designer.cs">
+      <DependentUpon>MapsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MinMaxButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewPlot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPlot.Designer.cs">
+      <DependentUpon>NewPlot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="New_OptionControl.Designer.cs">
+      <DependentUpon>New_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Open_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Open_OptionControl.Designer.cs">
+      <DependentUpon>Open_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Options_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options_OptionControl.Designer.cs">
+      <DependentUpon>Options_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OracleConnectionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OracleConnectionDetails.Designer.cs">
+      <DependentUpon>OracleConnectionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OracleSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OracleSearch.Designer.cs">
+      <DependentUpon>OracleSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherConnectionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherConnectionDetails.Designer.cs">
+      <DependentUpon>OtherConnectionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherDBSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherDBSearch.Designer.cs">
+      <DependentUpon>OtherDBSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PlotDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlotDetails.Designer.cs">
+      <DependentUpon>PlotDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostgreSQLConnectionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostgreSQLConnectionDetails.Designer.cs">
+      <DependentUpon>PostgreSQLConnectionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostgreSQLSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostgreSQLSearch.Designer.cs">
+      <DependentUpon>PostgreSQLSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print_OptionControl.Designer.cs">
+      <DependentUpon>Print_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RibbonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonControl.Designer.cs">
+      <DependentUpon>RibbonControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveAs_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SaveAs_OptionControl.Designer.cs">
+      <DependentUpon>SaveAs_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Save_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Save_OptionControl.Designer.cs">
+      <DependentUpon>Save_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JoinPlots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JoinPlots.Designer.cs">
+      <DependentUpon>JoinPlots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsControl.Designer.cs">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Export_OptionControl.Designer.cs">
+      <DependentUpon>Export_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplitPlot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplitPlot.Designer.cs">
+      <DependentUpon>SplitPlot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLServerConnectionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLServerConnectionDetails.Designer.cs">
+      <DependentUpon>SQLServerConnectionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLServerSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLServerSearch.Designer.cs">
+      <DependentUpon>SQLServerSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TabPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolsControl.Designer.cs">
+      <DependentUpon>ToolsControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutControl.resx">
+      <DependentUpon>AboutControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountSettingForm.resx">
+      <DependentUpon>AccountSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account_OptionControl.resx">
+      <DependentUpon>Account_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConvertImage.resx">
+      <DependentUpon>ConvertImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConvertOther.resx">
+      <DependentUpon>ConvertOther.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConvertPDF.resx">
+      <DependentUpon>ConvertPDF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConvertShapefile.resx">
+      <DependentUpon>ConvertShapefile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomProjectionsForm.resx">
+      <DependentUpon>CustomProjectionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCustomaryForm.resx">
+      <DependentUpon>EditCustomaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditFreeHoldForm.resx">
+      <DependentUpon>EditFreeHoldForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditLeaseForm.resx">
+      <DependentUpon>EditLeaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMailoForm.resx">
+      <DependentUpon>EditMailoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpManualForm.resx">
+      <DependentUpon>HelpManualForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportCSV.resx">
+      <DependentUpon>ImportCSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportGeoJSON.resx">
+      <DependentUpon>ImportGeoJSON.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportOtherFormat.resx">
+      <DependentUpon>ImportOtherFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportShapefile.resx">
+      <DependentUpon>ImportShapefile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCustomaryForm.resx">
+      <DependentUpon>NewCustomaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_OptionControl.resx">
+      <DependentUpon>Edit_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import_OptionControl.resx">
+      <DependentUpon>Import_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileOptionsControl.resx">
+      <DependentUpon>FileOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewFreeHoldForm.resx">
+      <DependentUpon>NewFreeHoldForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpControl.resx">
+      <DependentUpon>HelpControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help_OptionControl.resx">
+      <DependentUpon>Help_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeControl.resx">
+      <DependentUpon>HomeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Info_OptionControl.resx">
+      <DependentUpon>Info_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewLeaseForm.resx">
+      <DependentUpon>NewLeaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewMailoForm.resx">
+      <DependentUpon>NewMailoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapsControl.resx">
+      <DependentUpon>MapsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPlot.resx">
+      <DependentUpon>NewPlot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_OptionControl.resx">
+      <DependentUpon>New_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Open_OptionControl.resx">
+      <DependentUpon>Open_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options_OptionControl.resx">
+      <DependentUpon>Options_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OracleConnectionDetails.resx">
+      <DependentUpon>OracleConnectionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OracleSearch.resx">
+      <DependentUpon>OracleSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherConnectionDetails.resx">
+      <DependentUpon>OtherConnectionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherDBSearch.resx">
+      <DependentUpon>OtherDBSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlotDetails.resx">
+      <DependentUpon>PlotDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostgreSQLConnectionDetails.resx">
+      <DependentUpon>PostgreSQLConnectionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostgreSQLSearch.resx">
+      <DependentUpon>PostgreSQLSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print_OptionControl.resx">
+      <DependentUpon>Print_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RibbonControl.resx">
+      <DependentUpon>RibbonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveAs_OptionControl.resx">
+      <DependentUpon>SaveAs_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Save_OptionControl.resx">
+      <DependentUpon>Save_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JoinPlots.resx">
+      <DependentUpon>JoinPlots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsControl.resx">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export_OptionControl.resx">
+      <DependentUpon>Export_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplitPlot.resx">
+      <DependentUpon>SplitPlot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLServerConnectionDetails.resx">
+      <DependentUpon>SQLServerConnectionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLServerSearch.resx">
+      <DependentUpon>SQLServerSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolsControl.resx">
+      <DependentUpon>ToolsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pan.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomFull.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomIn.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomOut.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomSelection.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pan1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pa.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomIn1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomIn2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pan2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pan3.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pri.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export1.PNG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+  <Import Project="packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>
